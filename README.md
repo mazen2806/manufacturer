@@ -1,4 +1,6 @@
 
+This script is used to parse data from the site: https://www.urparts.com/index.cfm/page/catalogue and save it to the file
+
 ### How to run this application ###
 
     Add virtual environment and install packages:
