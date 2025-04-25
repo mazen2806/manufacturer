@@ -1,8 +1,8 @@
 import asyncio
 from typing import List
 
-from constants import DOMAIN_URL
-from utils import parse_page
+from loader.constants import DOMAIN_URL
+from loader.utils import parse_page
 
 
 class ManufacturerInfoParser:

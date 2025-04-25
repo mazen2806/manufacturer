@@ -3,7 +3,7 @@ import aiofiles
 from bs4 import BeautifulSoup
 from typing import List
 
-from constants import FILE_NAME, FILE_HEADERS
+from loader.constants import FILE_NAME, FILE_HEADERS
 
 
 async def parse_page(url, class_name, receive_text=False) -> List:
@@ -15,8 +15,8 @@ async def parse_page(url, class_name, receive_text=False) -> List:
     :return:
     """
     values = []
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url) as response:
+    async with aiohttp.ClientSession(trust_env=True) as session:
+        async with session.get(url, ssl=False) as response:
             html = await response.text()
             soup = BeautifulSoup(html, 'html.parser')
 

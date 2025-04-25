@@ -10,6 +10,7 @@ async def main():
     try:
         parser = ManufacturerInfoParser()
         category_urls = await parser.get_category_urls(SITE_URL)
+        logging.warn(f"{len(category_urls)} categories received...")
         model_urls = await parser.get_model_urls(category_urls)
         manufacturer_info = await parser.get_manufacturer_info(model_urls)
         await write_data_to_file(manufacturer_info)
